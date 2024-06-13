@@ -1,0 +1,13 @@
+<form [formGroup]="sessionForm" (ngSubmit)="onSubmitForm()">
+  <mat-dialog-content class="container">
+    <p>Enter session details</p>
+    <mat-form-field>
+      <mat-label>Duration</mat-label>
+      <input matInput type="number" matInput formControlName="duration">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onClose()">Close</button>
+    <button mat-button type="submit" [disabled]="sessionForm.invalid">Ok</button>
+  </mat-dialog-actions>
+</form>

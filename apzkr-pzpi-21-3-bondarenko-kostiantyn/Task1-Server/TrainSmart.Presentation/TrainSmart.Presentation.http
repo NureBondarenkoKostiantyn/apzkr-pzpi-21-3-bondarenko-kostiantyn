@@ -1,0 +1,6 @@
+@TrainSmart.Presentation_HostAddress = http://localhost:5209
+
+GET {{TrainSmart.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

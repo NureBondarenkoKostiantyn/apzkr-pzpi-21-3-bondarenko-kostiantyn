@@ -1,0 +1,44 @@
+.team-list__btn {
+  background-color: #1976d2;
+  color: #ffffff;
+  padding: 10px 20px;
+  margin: 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.team-list__btn:hover {
+  background-color: #1565c0;
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.mat-header-cell, .mat-cell {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #bbdefb;
+}
+
+.mat-header-cell {
+  background-color: #e3f2fd;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.mat-row:hover {
+  background-color: #e3f2fd;
+}
+
+@media (max-width: 600px) {
+  .team-list__btn {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .mat-header-cell, .mat-cell {
+    padding: 8px;
+  }
+}

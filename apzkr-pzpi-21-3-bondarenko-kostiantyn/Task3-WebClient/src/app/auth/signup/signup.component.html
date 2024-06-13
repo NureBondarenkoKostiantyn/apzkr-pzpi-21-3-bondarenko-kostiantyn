@@ -1,0 +1,24 @@
+
+<form class="container" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div class="container__item">
+    <p i18n>Sign up</p>
+  </div>
+  <div class="container__item">
+    <input formControlName="firstName" type="text" pInputText placeholder="First name"/>
+  </div>
+  <div class="container__item">
+    <input formControlName="lastName" type="text" pInputText placeholder="Last name"/>
+  </div>
+  <div class="container__item">
+    <input formControlName="email" type="text" pInputText placeholder="Email"/>
+  </div>
+  <div class="container__item">
+    <input formControlName="password" type="password" pInputText placeholder="Password"/>
+  </div>
+  <div class="container__item">
+    <button type="submit" [disabled]="signupForm.invalid">Submit</button>
+  </div>
+  <div class="container__links">
+    <a i18n routerLink="/auth/login">Already Have an Account?</a>
+  </div>
+</form>

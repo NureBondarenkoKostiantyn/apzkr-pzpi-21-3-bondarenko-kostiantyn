@@ -1,0 +1,91 @@
+/* Main Toolbar Styles */
+.main-toolbar {
+  background-color: #1976d2; /* Primary Blue */
+  color: #ffffff; /* White */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Toolbar Title Styles */
+.toolbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff; /* White */
+}
+
+/* Toolbar Links Container */
+.toolbar-links {
+  display: flex;
+  gap: 10px;
+}
+
+/* Toolbar Button Styles */
+.main-toolbar a[mat-button] {
+  color: #ffffff; /* White */
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.main-toolbar a[mat-button]:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight white overlay */
+}
+
+/* Language Switcher Styles */
+.language-switcher {
+  display: flex;
+  align-items: center;
+}
+
+/* Optional: Language Button Adjustments */
+.language-switcher .language-button {
+  background-color: #1565c0; /* Secondary Blue */
+  color: #ffffff; /* White */
+  margin-left: 10px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.language-switcher .language-button:hover {
+  background-color: #0d47a1; /* Dark Blue */
+}
+
+.language-switcher .language-button.active {
+  background-color: #0d47a1; /* Dark Blue */
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .main-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .toolbar-title {
+    margin-bottom: 10px;
+  }
+
+  .toolbar-links {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .toolbar-links a[mat-button] {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .language-switcher .language-button {
+    padding: 6px 12px;
+  }
+}

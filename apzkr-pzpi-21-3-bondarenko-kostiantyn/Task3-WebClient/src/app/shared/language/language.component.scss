@@ -1,0 +1,50 @@
+/* Language Switcher Container */
+.language-switcher {
+  position: fixed;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  z-index: 1000;
+}
+
+/* Language Buttons */
+.language-button {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+/* Hover Effect */
+.language-button:hover {
+  background-color: #1565c0;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Active Button */
+.language-button.active {
+  background-color: #0d47a1;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .language-switcher {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .language-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+}

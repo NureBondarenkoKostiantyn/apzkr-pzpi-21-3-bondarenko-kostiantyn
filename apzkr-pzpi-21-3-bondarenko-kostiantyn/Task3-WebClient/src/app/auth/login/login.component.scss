@@ -1,0 +1,46 @@
+.container{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #000;
+
+  &__item{
+    width: 30vw;
+    margin: .5rem;
+    text-align: center;
+
+    & > p{
+      font-weight: bold;
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    & > label{
+    }
+
+    & > input{
+      width: 100%;
+      font-size: 1.6rem;
+      padding: .5rem;
+    }
+
+    & > button{
+      font-size: 1.4rem;
+      padding: .5rem;
+      border-radius: 5%;
+    }
+  }
+
+  &__links{
+    & > a{
+      font-size: 1.4rem;
+      text-decoration: none;
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
