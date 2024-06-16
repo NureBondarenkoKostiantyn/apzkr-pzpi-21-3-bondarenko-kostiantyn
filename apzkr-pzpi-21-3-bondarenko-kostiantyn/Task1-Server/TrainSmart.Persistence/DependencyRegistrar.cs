@@ -48,6 +48,7 @@ public static class DependencyRegistrar
     {
         services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
+    
     private static void ConfigureIdentity(
         this IServiceCollection services)
     {

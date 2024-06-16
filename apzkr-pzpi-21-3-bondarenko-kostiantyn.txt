@@ -1,0 +1,922 @@
+Міністерство освіти і науки України
+Харківський національний університет радіоелектроніки
+
+Факультет  комп’ютерних наук
+
+Кафедра програмної інженерії
+
+
+КУРСОВА РОБОТА
+ПОЯСНЮВАЛЬНА ЗАПИСКА
+з дисципліни “Архітектура програмного забезпечення”
+Тема роботи: “Програмна система для моніторингу здоров'я та фізичних показників членів спортивної команди”
+
+Виконав:
+Студент гр. ПЗПІ-21-3 			                                            Бондаренко К.Т.
+
+Керівник роботи:									
+Доц. каф. ПІ                                                                                    Лещинська І. О.
+
+Роботу захищено з оцінкою
+
+Комісія:
+Ст. викл. каф. ПІ                                                                               Сокорчук І. П.
+Доц. каф. ПІ								 Лещинський В. О.
+Доц. каф. ПІ								     Лещинська І. О.
+
+
+Харків 2024
+ХАРКІВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ РАДІОЕЛЕКТРОНІКИ
+
+Факультет: комп’ютерних наук. Кафедра: програмної інженерії
+Спеціальність: 121-Інженерія програмного забезпечення
+Курс: 3. Семестр: 6
+Навчальна дисципліна: Архітектура програмного забезпечення
+
+
+ЗАВДАННЯ
+НА КУРСОВУ РОБОТУ СТУДЕНТОВІ
+
+Бондаренку Костянтину Тарасовичу
+1 Тема проекту: “Програмна система для моніторингу здоров'я та фізичних показників членів спортивної команди” 
+2 Термін узгодження завдання курсової роботи:  11 березня 2024 р.
+3 Термін здачі студентом закінченої роботи: 15 червня 2024 р.
+4 Вихідні дані до проекту:
+Вимоги до програмної системи, предметна область, методичні вказівки до виконання курсової роботи.
+5 Зміст пояснювальної записки:
+	Вступ, аналіз предметної області, постановка задачі, проектування програмного проекту, структура бази даних, кодування програмного проекту, опис розробленої програмної системи, висновки, перелік посилань, додатки.
+6 Перелік графічного матеріалу:
+	Схема бази даних, інтерфейси сторінок, діаграма прецедентів, діаграма розгортання, діаграма пакетів.
+КАЛЕНДАРНИЙ ПЛАН
+Номер	Назва етапів курсової роботи	Термін виконання етапів роботи	Примітка
+1	Функціональна специфікація
+програмного проекту	31.03.2024	
+2	Проектування програмного
+проекту	30.04.2024	
+3	Кодування програмного проекту	8.06.2024	
+4	Оформлення пояснювальної
+записки	15.06.2024	
+5	Захист курсової роботи	15.06.2024	
+
+
+Дата видачі завдання: 11 березня 2024 р.
+
+Керівник  							   доц. каф. ПІ Лещинська І. О.
+
+Завдання прийняв до виконання 
+ст. гр. ПЗПІ-21-3 								   Бондаренко К. Т.
+
+
+
+РЕФЕРАТ
+
+ 
+ЗМІСТ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ВСТУП
+В умовах сучасного спортивного світу, де досягнення високих результатів залежить від досконалого моніторингу та аналізу фізичних показників спортсменів, виникає потреба у програмних рішеннях, які дозволяють забезпечити всебічний контроль за здоров'ям і підготовкою. Розроблена в межах курсової роботи система спрямована на забезпечення інтегрованого підходу до моніторингу та аналізу фізичних показників спортсменів. Вона буде застосовуватися в спортивних командах, клубах, академіях та індивідуальними спортсменами для підвищення ефективності тренувань і досягнення оптимальних результатів у змаганнях.
+Актуальність розробки обумовлена зростаючою потребою у покращенні методів контролю за фізичним станом спортсменів в умовах жорсткої конкуренції. Існуючі рішення на ринку, такі як Catapult Sports, PlayerTek і STATSports, хоч і надають базові можливості для збору та аналізу даних, мають значні обмеження у функціональності, інтеграції з різними девайсами та розширеній аналітиці. Вони не завжди можуть забезпечити повний та комплексний моніторинг, що знижує їхню ефективність. Моя система, інтегруючи дані з різних пристроїв та використовуючи розширені аналітичні методи, надасть більш повний образ фізичного стану спортсменів, тим самим покращуючи процес ухвалення тренувальних рішень і допомагаючи у досягненні вищих спортивних результатів.
+Метою курсової роботи є розробка програмної системи для комплексного моніторингу здоров'я та фізичних показників спортивних команд. Система буде здійснювати збір та аналіз даних з різних девайсів, надавати інтуїтивно зрозумілий інтерфейс для тренерів та спортсменів, а також пропонувати розширені можливості аналітики для індивідуалізації тренувальних програм. Успішне впровадження цієї системи сприятиме підвищенню ефективності тренувань, покращенню фізичних показників спортсменів і допоможе спортивним командам досягти нових висот у своїх спортивних досягненнях.
+
+
+1 ВІДОМОСТІ ПРО ПРЕДМЕТ РОЗРОБКИ
+2.1 Опис предметної області
+
+	Програмна система для комплексного моніторингу здоров'я та фізичних показників спортивних команд вирішує важливі задачі у спортивній сфері. Сучасний спорт, особливо на професійному рівні, вимагає інтегрованого підходу до оцінки фізичного стану спортсменів, адже навіть незначні деталі можуть значно вплинути на результати змагань. Успіх у спорті залежить від різноманітних факторів: від фізичних показників спортсмена до стратегічних рішень тренера. З огляду на це, предметною областю цієї розробки є комплексний моніторинг фізичного стану спортсменів, аналіз тренувальних навантажень.
+В основі системи лежить збір, обробка та аналіз даних, що відображають фізичний стан спортсменів, такі як серцевий ритм, частота дихання, температура тіла, рівень втоми та інші. Це дозволяє тренерам приймати обґрунтовані рішення щодо тренувальних програм, а також забезпечує спортсменів інформацією про їхній поточний фізичний стан, що сприяє підвищенню ефективності їх підготовки та зменшує ризик травмування.
+Сучасні спортивні тренування включають широкий спектр активностей, кожна з яких накладає певні вимоги на фізичну форму спортсменів. Наприклад, у футболі критично важливими є витривалість, швидкість і сила, тоді як у важкій атлетиці основну роль відіграє сила. Оцінка таких параметрів може бути складною без спеціалізованих засобів, які дозволяють відстежувати показники в реальному часі та аналізувати їх. Тому система, яка забезпечує таку функціональність, стане незамінним інструментом для тренерів і спортсменів.
+Основними компонентами системи є сенсори для збору даних, програмне забезпечення для обробки цих даних та інтерфейс для їх візуалізації та аналізу. Сенсори можуть включати носимі пристрої, такі як фітнес-браслети, датчики, що закріплюються на тілі спортсмена, та інші пристрої, які фіксують фізіологічні параметри. Всі ці дані передаються у програму, де відбувається їх обробка та аналіз, з подальшим наданням тренерам інформації про стан спортсменів у вигляді графіків, звітів та рекомендацій.
+Система також сприяє покращенню координації між різними учасниками тренувального процесу, зокрема тренерами, лікарями та самими спортсменами. Інформація про фізичний стан спортсменів, яка доступна в реальному часі, дозволяє всім зацікавленим сторонам приймати спільні рішення щодо тренувального режиму, реабілітаційних заходів та інших аспектів підготовки. Це значно підвищує ефективність командної роботи і покращує результати.
+
+2.2 Опис програмної системи
+
+Програмна система для моніторингу координації спортсменів і управління тренувальними сесіями поєднує різноманітні технологічні компоненти: IoT пристрій на базі Arduino, бекенд на .NET API та фронтенд на Angular. Її основна мета полягає в зборі та обробці даних про фізичні показники атлетів, а також наданні тренерам можливості створювати і контролювати тренувальні сесії, покращуючи тренувальний процес завдяки детальному аналізу зібраних даних.
+Серверна частина системи функціонує як програмний інтерфейс застосунку (API) для управління даними та забезпечення взаємодії з користувачами. Цей компонент відповідає за створення і редагування команд, додавання атлетів до команд, а також організацію тренувальних сесій. Програмний інтерфейс підтримує функції для збору даних про фізичні показники спортсменів та їх збереження у базі даних. Основні можливості серверної частини включають обробку запитів від фронтенд додатку, агрегацію і збереження зібраних даних, а також забезпечення доступу до цієї інформації через програмний інтерфейс, що відповідає специфікації REST. Таким чином, ця частина програми надає централізовану точку для управління всіма аспектами системи, зокрема даними про команди, користувачів, атлетів і тренувальні сесії.
+Клієнтська частина системи забезпечує інтерактивний користувацький інтерфейс, де тренери можуть переглядати фізичні показники атлетів у вигляді графіків і діаграм. Цей компонент надає інструменти для візуалізації даних, отриманих з бекенду, дозволяючи відстежувати і аналізувати показники спортсменів під час тренувальних сесій. Інтерфейс дозволяє створювати, редагувати і переглядати тренувальні сесії, а також взаємодіяти з командою і атлетами.
+Розумний пристрій виконує функцію автономного датчика, що відповідає за збір даних про крен, тангаж і рискання спортсмена. Пристрій не підключений безпосередньо до системи, але він забезпечує важливі дані про просторову координацію спортсмена, що можуть використовуватися для подальшого аналізу. Сенсори відстежують кутове положення і просторовий рух атлета, дозволяючи оцінити його фізичні показники у тривимірному просторі.
+Взаємодія між компонентами системи організована таким чином, що дані, зібрані розумними пристроями, передаються до серверної частини для обробки і збереження. Серверна частина обробляє ці дані і надає їх у вигляді, що підходить для візуалізації на клієнтській частині. Клієнтська частина відображає ці дані у вигляді інтерактивних графіків і діаграм, дозволяючи користувачам аналізувати фізичні показники атлетів.
+
+2 АРХІТЕКТУРА ТА ПРОЄКТУВАННЯ СИСТЕМИ
+2.1 Архітектура програмного забезпечення
+
+Архітектура програмного забезпечення системи розподілена на дві основні частини: серверну і клієнтську. Серверна частина розроблена з використанням підходу домен-орієнтованого проектування (DDD), тоді як клієнтська частина побудована на основі компонентної архітектури.
+Для серверної частини було обрано домен-орієнтоване проектування (DDD). Цей підхід дозволяє зосередитися на бізнес-логіці та доменних процесах, забезпечуючи глибоке розуміння предметної області і чітке розмежування між різними доменами системи. DDD надає можливість розділити систему на окремі доменні області, такі як доменні моделі, сервіси та репозиторії, що сприяє чіткій структурі коду. Це значно полегшує підтримку та розвиток програмного забезпечення, оскільки кожен компонент системи виконує конкретну функцію і взаємодіє з іншими компонентами через чітко визначені інтерфейси. На рисунку 1 зображена діаграма пакетів серверної частини.
+
+Рисунок 1 – Діаграма пакетів серверної частини.
+
+Клієнтська частина системи використовує компонентну архітектуру, яка забезпечує модульність і повторне використання коду. Компонентна архітектура дозволяє створювати незалежні, самодостатні компоненти, що мають власну логіку, шаблон і стилі. Це значно полегшує управління кодом, тестування, обслуговування та організацію проекту в цілому. Компоненти можуть управляти власним станом або спільним станом через сервіси, що робить управління станом додатку більш передбачуваним і легким. Ізольованість компонентів забезпечує мінімальний вплив змін в одному компоненті на інші частини системи, що покращує стабільність і полегшує внесення змін або додавання нових функцій. На рисунку 2 зображено діаграму компонентів клієнтської частини.
+
+Рисунок 2 – Діаграма компонентів клієнтської частини.
+
+IoT компонент системи має значно простішу архітектуру. IoT пристрій здійснює моніторинг крену, тангажу та рискання, щоб визначити координацію спортсмена в просторі. Основне завдання IoT пристрою полягає в зборі і первинній обробці даних, які потім можуть бути використані для подальшого аналізу. Через специфіку апаратного забезпечення та варіативність використаних девайсів, архітектура IoT компонента може змінюватися в залежності від конкретного пристрою та його можливостей. Відсутність складної архітектури для коду пояснюється його призначенням для одного конкретного завдання - збір даних про рух, крен тангаж та рискання. На рисунку 3 зображена діаграма пакетів IoT компоненту.
+Рисунок 3 – Діаграма пакетів IoT компоненту.
+
+2.2 Структура бази даних
+
+Структура бази даних системи розроблена для забезпечення ефективного управління інформацією про користувачів, команди, атлетів, сесії, спортивні дані та інші компоненти, необхідні для функціонування системи. База даних має реляційну модель, в якій основні дані зберігаються в таблицях, а взаємозв’язки між ними встановлюються за допомогою зовнішніх ключів. Вона побудована з використанням Microsoft SQL Server і включає кілька таблиць, кожна з яких відіграє конкретну роль у системі.
+Таблиця AspNetRoleClaims зберігає інформацію про зв’язок між ролями та їхніми клеймами. Клейми представляють собою додаткові властивості або атрибути, що прив'язуються до ролей. Таблиця містить стовпці Id, ClaimType, ClaimValue та RoleId, де Id є первинним ключем, а RoleId посилається на таблицю AspNetRoles, встановлюючи відношення "один до багатьох" між ролями та їхніми клеймами.
+Таблиця AspNetRoles зберігає ролі, визначені в системі, включаючи такі поля, як Id, ConcurrencyStamp, Name та NormalizedName. Поле Id є первинним ключем і унікально ідентифікує кожну роль.
+Таблиця AspNetUserClaims містить клейми, прив'язані до користувачів. Вона має поля Id, ClaimType, ClaimValue та UserId, де UserId посилається на таблицю AspNetUsers, встановлюючи зв’язок між клеймами користувача та самим користувачем.
+Таблиця AspNetUserLogins відповідає за зберігання інформації про зовнішні входи в систему для користувачів, наприклад, через соціальні мережі. Вона включає LoginProvider, ProviderKey, ProviderDisplayName та UserId, з LoginProvider та ProviderKey у якості складеного первинного ключа.
+Таблиця AspNetUserRoles відображає зв'язок між користувачами і їх ролями, маючи поля UserId і RoleId, які разом утворюють складений первинний ключ. Це дозволяє одному користувачеві мати кілька ролей.
+Таблиця AspNetUsers зберігає інформацію про користувачів системи, включаючи такі поля як Id, AthleteId, FirstName, LastName, Image, Age, AccessFailedCount, ConcurrencyStamp, Email, EmailConfirmed, LockoutEnabled, LockoutEnd, NormalizedEmail, NormalizedUserName, PasswordHash, PhoneNumber, PhoneNumberConfirmed, SecurityStamp, TwoFactorEnabled, UserName. AthleteId є зовнішнім ключем, що посилається на таблицю Athletes, встановлюючи зв’язок між користувачем і атлетом.
+Таблиця AspNetUserTokens зберігає токени для користувачів. Вона має поля UserId, LoginProvider, Name, Value, з UserId, LoginProvider і Name, що разом складають первинний ключ, і встановлює зв'язок з таблицею AspNetUsers через поле UserId.
+Таблиця Athletes містить інформацію про атлетів, включаючи Id та UserId, де UserId є зовнішнім ключем, що посилається на таблицю AspNetUsers.
+Таблиця HealthMetrics збирає дані про показники здоров'я атлетів. Вона має поля Id, SessionId, TeamAthleteId, MetricType, MetricValue та TimeStamp. Поле SessionId посилається на таблицю Sessions, а TeamAthleteId на таблицю TeamAthletes.
+Таблиця PerformanceMetrics зберігає дані про продуктивність атлетів. Вона має аналогічну структуру з полями Id, SessionId, TeamAthleteId, MetricType, MetricValue та TimeStamp, з відповідними зовнішніми ключами на таблиці Sessions і TeamAthletes.
+Таблиця Sessions відповідає за управління тренувальними сесіями команд, включаючи Id, TeamId, Date, EndDate та Duration. Поле TeamId посилається на таблицю Teams.
+Таблиця Sports містить інформацію про види спорту, зберігаючи Id, Name та Description.
+Таблиця TeamAthletes відображає зв'язок між атлетами і командами, включаючи Id, AthleteId, TeamId, і DateJoined. Вона встановлює зв’язок між таблицями Athletes і Teams через відповідні зовнішні ключі.
+Таблиця Teams зберігає інформацію про команди, включаючи Id, Name, Description, CountryName та SportId, де SportId посилається на таблицю Sports.
+На рисунку 4 зображена діаграма бази даних.
+Рисунок 4 – Діаграма бази даних.
+
+Ця структура бази даних забезпечує надійне зберігання і управління даними, необхідними для функціонування системи. Вона підтримує розширену авторизацію і автентифікацію, управління командами, атлетами та їхніми тренувальними даними, а також забезпечує зв’язок між всіма компонентами системи.
+
+3 ОПИС ПРОГРАМНИХ РІШЕНЬ
+3.1 Вибір програмних засобів 
+
+Для реалізації проекту були обрані такі програмні рішення: .NET для серверної частини, Angular для клієнтської частини, та Arduino для IoT пристрою збору даних.
+.NET було обрано для серверної частини через його високу продуктивність, масштабованість і широку підтримку. .NET API дозволяє ефективно створювати високопродуктивні серверні додатки з використанням сучасних технологій безпеки і відповідності стандартам. Він забезпечує легку інтеграцію з іншими сервісами та інструментами, такими як бази даних і хмарні сервіси.
+Angular було обрано для клієнтської частини через його компонентну архітектуру і потужні інструменти розробки. Angular дозволяє побудувати модульні, легко підтримувані компоненти для відображення фізичних показників атлетів та інтерактивних графіків. Він забезпечує ефективний обмін даними з серверною частиною через REST API і підтримує створення прогресивних веб-додатків.
+Arduino було обрано для IoT пристрою через його простоту використання і гнучкість. Arduino пропонує доступ до широкого спектру сенсорів і модулів, необхідних для збору даних про рух та координацію спортсменів у просторі.
+
+3.2 Програмні рішення серверної частини
+3.2.1 Автентифікація та авторизація
+
+Обравши JWT (JSON Web Token) автентифікацію для серверної частини, я зосередився на використанні цього стандарту через його численні переваги у контексті безпеки та ефективності. JWT забезпечує можливість генерації токенів, які містять інформацію про користувача та його права, підписані секретним ключем сервера. Це дозволяє клієнтам автентифікувати свої запити до сервера та отримувати доступ до захищених ресурсів без необхідності постійної перевірки ідентифікаційних даних. Частина коду, що генерує JWT токен:
+1. public JwtSecurityToken GenerateToken(SigningCredentials signingCredentials,
+2.         IEnumerable<Claim> claims)
+3.     {
+4.         var token = new JwtSecurityToken(
+5.             issuer: _jwtOptions.Issuer,
+6.             audience: _jwtOptions.Audience,
+7.             claims: claims,
+8.             expires: DateTime.Now.AddDays(30),
+9.             signingCredentials: signingCredentials);
+10. 
+11.         return token;
+12.     }
+
+3.2.1 Взаємодія з базою даних
+
+Я обрав підход Database First для розробки бази даних. Цей підхід дозволяє зосередитися на створенні оптимальної схеми бази даних з необхідними зв'язками між таблицями та оптимізації використання ресурсів бази даних. Використання Entity Framework із генерацією моделей даних автоматично спрощує розробку та інтеграцію з базою даних, забезпечуючи швидку реалізацію і масштабування системи. Я створив окремий проєкт для збереження таблиць на мові T-SQL та оновлення бази даних. Таблиця PerformanceMetrics:
+1. CREATE TABLE [dbo].[PerformanceMetrics]
+2. (
+3. 	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+4. 	[SessionId] UNIQUEIDENTIFIER NOT NULL,
+5. 	[TeamAthleteId] UNIQUEIDENTIFIER NOT NULL,
+6. 	[MetricType] INT NOT NULL,
+7. 	[MetricValue] DECIMAL NULL,
+8. 	[TimeStamp] DATE,
+9. 	CONSTRAINT	[FK_PerformanceMetrics_SessionId] FOREIGN KEY ([SessionId]) REFERENCES [dbo].[Sessions]([Id]),
+10. 	CONSTRAINT	[FK_PerformanceMetrics_TeamAthleteId] FOREIGN KEY ([TeamAthleteId]) REFERENCES [dbo].[TeamAthletes]([Id])
+11. )
+
+3.2.3 Безпека даних
+
+Особливу увагу приділив забезпеченню безпеки даних, використовуючи механізми хешування паролів. Це означає, що фактичні паролі користувачів не зберігаються у відкритому вигляді в базі даних, а представлені у вигляді хеш-кодів, що ускладнює їх зламання в разі несанкціонованого доступу. Додатково, я використовую параметризовані запити та заходи протидії SQL ін'єкціям для захисту від потенційних атак, що забезпечує стійкість системи до небезпечних впливів з боку зловмисників. Частина коду, що налаштовує складність паролю:
+1. private static void ConfigureIdentity(
+2.         this IServiceCollection services)
+3.     {
+4.         services.AddIdentity<User, Role>(opt => 
+5.             {
+6.                 opt.Password.RequiredLength = 8;
+7.                 opt.Password.RequireLowercase = false;
+8.                 opt.Password.RequireUppercase = true;
+9.                 opt.Password.RequireDigit = true;
+10.                 opt.Password.RequireNonAlphanumeric = false;
+11.                 opt.User.RequireUniqueEmail = true;
+12.                 opt.SignIn.RequireConfirmedEmail = false;
+13.             })
+14.             .AddDefaultTokenProviders()
+15.             .AddEntityFrameworkStores<AppDbContext>();
+16.     }
+
+	3.3 Програмні рішення клієнтської частини
+	3.3.1 Взаємодія з сервером
+
+	Основу взаємодії з сервером у моєму додатку становлять сервіси Angular, які забезпечують інкапсуляцію логіки обробки HTTP-запитів. Це дає змогу зосередити всі операції з обміну даними між клієнтською та серверною частинами в одному місці, що значно спрощує управління інформацією та покращує підтримуваність коду.
+Сервіси Angular у моєму додатку відповідають за різні функціональні області, включаючи управління командами, атлетами, метриками здоров’я, продуктивністю та сесіями. Кожен сервіс реалізує набір методів для виконання основних операцій CRUD (Create, Read, Update, Delete) з використанням HttpClient. Приклад такого сервісу наведений нижче.
+1. @Injectable({
+2.   providedIn: 'root'
+3. })
+4. export class TeamsService {
+5.   private apiUrl: string = environment.apiUrl + "/teams";
+6.   constructor(private http: HttpClient) { }
+7. 
+8.   getTeams(): Observable<Team[]>{
+9.     return this.http.get<Team[]>(this.apiUrl);
+10.   }
+11. 
+12.   getAthletes(id: string): Observable<Athlete[]>{
+13.     return this.http.get<Athlete[]>(`${this.apiUrl}/${id}/athletes`);
+14.   }
+15. 
+16.   getTeamById(id: string): Observable<Team>{
+17.     return this.http.get<Team>(`${this.apiUrl}/${id}`);
+18.   }
+19. 
+20.   createTeam(team: Team){
+21.     return this.http.post(`${this.apiUrl}`, team);
+22.   }
+23. 
+24.   editTeam(id: string, team: Team){
+25.     return this.http.put(`${this.apiUrl}/${id}`, team);
+26.   }
+27. 
+28.   deleteTeam(id: string){
+29.     return this.http.delete(`${this.apiUrl}/${id}`);
+30.   }
+31. }
+
+	3.3.2 Локалізація
+
+
+	3.3.3 Інтерфейс
+
+
+	3.4 Програмні рішення частини розумного девайсу 
+
+У процесі розробки IoT-частини проєкту я інтегрував сенсори та дисплеї з метою збору, обробки та відображення даних про навколишнє середовище. Для цього я обрав платформу Arduino та використовував популярні компоненти, такі як датчик MPU6050 і дисплей Adafruit SSD1306. Вибір цієї платформи був продиктований її гнучкістю, наявністю великої кількості бібліотек та можливістю легкої інтеграції з різними периферійними пристроями.
+Arduino, на базі якого я реалізував IoT-рішення, надає спрощену модель програмування для мікроконтролерів, що дозволяє швидко розробляти прототипи пристроїв. У моєму випадку я використав мікроконтролер для збору даних з датчика MPU6050, який вимірює акселерометричні та гіроскопічні показники. Цей датчик дозволяє відстежувати кутові положення та рухи пристрою в трьох вимірах, що є критично важливим для багатьох застосувань IoT.
+Для зчитування даних з датчика MPU6050 я використав протокол I2C, який забезпечує ефективну комунікацію між мікроконтролером і периферійними пристроями. У моєму коді я налаштував зв'язок з датчиком через I2C, вказавши його адресу та конфігурацію. Використовуючи бібліотеку Wire, я ініціалізував зв'язок з датчиком, надіславши необхідні команди для його активації та налаштування. Після цього я зчитував дані з регістрів датчика, конвертувавши сирі показники в корисні фізичні значення, такі як прискорення та кутові швидкості.
+Під час обробки даних з датчика я обчислював кути нахилу пристрою за допомогою алгоритмів, які комбінують показники акселерометра та гіроскопа. Використовуючи відомі формули, я перетворював значення з акселерометра в кути нахилу відносно осей X і Y, а також обчислював кутову швидкість обертання навколо осі Z за допомогою гіроскопа. Щоб отримати точні кути нахилу (roll, pitch), я застосовував метод злиття даних, комбінуючи показники гіроскопа та акселерометра, де гіроскопічні дані надають більшу вагу, оскільки вони менш схильні до шумів та зовнішніх впливів.
+Для відображення зібраних та оброблених даних я використав OLED дисплей Adafruit SSD1306, підключений до мікроконтролера також через I2C. Цей дисплей забезпечує високу контрастність і низьке енергоспоживання, що є ідеальним для відображення показників у реальному часі. У своєму коді я використав бібліотеку Adafruit_GFX та Adafruit_SSD1306, які надають зручні методи для управління дисплеєм, включаючи функції для відображення тексту, малювання графічних примітивів та очищення екрану.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ВИСНОВКИ
+
+В результаті курсової роботи я розробив систему для управління спортивними командами та моніторингу фізичних показників атлетів під час тренувань. Система дозволяє створювати команди, додавати атлетів, організовувати тренувальні сесії та відстежувати їх фізичні показники, що забезпечує ефективний контроль і управління тренувальним процесом. Розробка цієї системи дала мені глибше розуміння інтеграції різних програмних компонентів, зокрема серверної і клієнтської частини, а також роботи з IoT пристроями для збору даних. Я навчився проектувати програмне забезпечення з урахуванням вимог безпеки, взаємодії з базою даних та ефективного відображення даних користувачам.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ПЕРЕЛІК ДЖЕРЕЛ ПОСИЛАННЯ
+
+1.	"Проектування доменно-орієнтованих систем. Розплутування складнощів у серці програмного забезпечення" Ерік Еванс
+2.	"Шаблони архітектури додатків" Мартін Фаулер
+3.	"Шаблони проектування. Елементи повторного використання об'єктно-орієнтованого програмування" Еріх Гамма, Річард Хельм, Ральф Джонсон, Джон Вліссідес
+4.	Демо функціонального тестування.
+5.	Програмний код системи. URL: https://github.com/NureBondarenkoKostiantyn/apzkr-pzpi-21-3-bondarenko-kostiantyn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ДОДАТОК А
+GenericRepository.cs
+
+1. public class GenericRepository<TEntity>: IGenericRepository<TEntity> where TEntity: class
+2. {
+3.     private readonly AppDbContext _context;
+4.     protected readonly DbSet<TEntity> DbSet;
+5. 
+6.     protected GenericRepository(AppDbContext context)
+7.     {
+8.         _context = context;
+9.         DbSet = context.Set<TEntity>();
+10.     }
+11. 
+12.     public async Task<IEnumerable<TEntity>> GetAllAsync(
+13.         bool asNoTracking = false, 
+14.         CancellationToken cancellationToken = default)
+15.     {
+16.         return asNoTracking
+17.             ? await DbSet.AsNoTracking().ToListAsync(cancellationToken)
+18.             : await DbSet.ToListAsync(cancellationToken);
+19.     }
+20. 
+21.     public async Task CreateAsync(
+22.         TEntity entity, 
+23.         CancellationToken cancellationToken = default)
+24.     {
+25.         await _context.AddAsync(entity, cancellationToken);
+26.     }
+27. 
+28.     public void Update(TEntity entity)
+29.     {
+30.         _context.Update(entity);
+31.     }
+32. 
+33.     public void Delete(TEntity entity)
+34.     {
+35.         _context.Remove(entity);
+36.     }
+37. }
+
+
+ДОДАТОК Б
+AppDbContext.cs
+
+1. public sealed class AppDbContext: IdentityDbContext<User, Role, Guid>
+2. {
+3.     public AppDbContext(DbContextOptions<AppDbContext> options): base(options)
+4.     {
+5.     }
+6. 
+7.     protected override void OnModelCreating(ModelBuilder modelBuilder)
+8.     {
+9.         base.OnModelCreating(modelBuilder);
+10. 
+11.         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+12.     }
+13.     
+14.     public DbSet<Sport> Sports { get; private set; }
+15.     public DbSet<Athlete> Athletes { get; private set; }
+16.     public DbSet<Team> Teams { get; private set; }
+17.     public DbSet<TeamAthlete> TeamAthletes { get; private set; }
+18.     public DbSet<Session> Sessions { get; private set; }
+19.     public DbSet<PerformanceMetric> PerformanceMetrics { get; private set; }
+20.     public DbSet<HealthMetric> HealthMetrics { get; private set; }
+21. }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ДОДАТОК В
+Session.cs
+
+1. public class Session: BaseAggregateRoot
+2. {
+3.     public Guid TeamId { get; private set; }
+4.     public DateTime Date { get; private set; }
+5.     public DateTime EndDate { get; private set; }
+6.     public int Duration { get; private set; }
+7.     
+8.     private readonly List<PerformanceMetric> _performanceMetrics = [];
+9.     private readonly List<HealthMetric> _healthMetrics = [];
+10. 
+11.     public IReadOnlyCollection<PerformanceMetric> PerformanceMetrics => _performanceMetrics;
+12.     public IReadOnlyCollection<HealthMetric> HealthMetrics => _healthMetrics;
+13.     
+14.     public Session(Guid teamId, int duration) : base(Guid.NewGuid())
+15.     {
+16.         TeamId = teamId;
+17.         Date = DateTime.UtcNow;
+18.         EndDate = Date.AddMinutes(duration);
+19.         Duration = duration;
+20.     }
+21. 
+22.     public void AddPerformanceMetric(PerformanceMetric performanceMetric)
+23.     {
+24.         if (_performanceMetrics.All(x => x.Id != performanceMetric.Id))
+25.         {
+26.             _performanceMetrics.Add(performanceMetric);
+27.         }
+28.     }
+29. 
+30.     public void PopulatePerformanceMetrics(IEnumerable<PerformanceMetric> performanceMetrics)
+31.     {
+32.         var validPerformanceMetrics = performanceMetrics
+33.             .Where(x => !_performanceMetrics.Contains(x));
+34.         _performanceMetrics.AddRange(validPerformanceMetrics);
+35.     }
+36. 
+37.     public void AddHealthMetric(HealthMetric healthMetric)
+38.     {
+39.         if (_healthMetrics.All(x => x.Id != healthMetric.Id))
+40.         {
+41.             _healthMetrics.Add(healthMetric);
+42.         }
+43.     }
+44. 
+45.     public void PopulateHealthMetrics(IEnumerable<HealthMetric> healthMetrics)
+46.     {
+47.         var validHealthMetrics = healthMetrics
+48.             .Where(x => !_healthMetrics.Contains(x));
+49.         _healthMetrics.AddRange(validHealthMetrics);
+50.     }
+51. }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ДОДАТОК Г
+AuthService.cs
+
+1. public class AuthService: IAuthService
+2. {
+3.     private readonly UserManager<User> _userManager;
+4.     private readonly SignInManager<User> _signInManager;
+5.     private readonly IMapper _mapper;
+6.     private readonly IJwtService _jwtHandler;
+7. 
+8.     public AuthService(
+9.         UserManager<User> userManager,
+10.         SignInManager<User> signInManager,
+11.         IMapper mapper, 
+12.         IJwtService jwtHandler)
+13.     {
+14.         _userManager = userManager;
+15.         _signInManager = signInManager;
+16.         _mapper = mapper;
+17.         _jwtHandler = jwtHandler;
+18.     }
+19. 
+20.     public async Task<JwtTokenDto> LoginAsync(
+21.         LoginDto loginDto,
+22.         CancellationToken cancellationToken = default)
+23.     {
+24.         var user = await _userManager.FindByEmailAsync(loginDto.Email)
+25.             ?? throw new ApplicationException("Invalid email or password");
+26. 
+27.         var result = await _signInManager
+28.             .PasswordSignInAsync(user, loginDto.Password, false, false);
+29. 
+30.         if (!result.Succeeded)
+31.         {
+32.             throw new ApplicationException("Invalid email or password");
+33.         }
+34. 
+35.         var claims = await _jwtHandler.GetClaimsAsync(user.Id);
+36.         var signingCredentials = _jwtHandler.GetSigningCredentials();
+37.         var token = _jwtHandler.GenerateToken(signingCredentials, claims);
+38. 
+39.         return new JwtTokenDto
+40.         {
+41.             Token = new JwtSecurityTokenHandler().WriteToken(token),
+42.         };
+43.     }
+44. 
+45.     public async Task SignupAsync(
+46.         SignupDto signupDto,
+47.         CancellationToken cancellationToken = default)
+48.     {
+49.         var user = _mapper.Map<User>(signupDto);
+50. 
+51.         user.UserName = user.Email;
+52.         
+53.         var result = await _userManager.CreateAsync(user, signupDto.Password);
+54. 
+55.         if (!result.Succeeded)
+56.         {
+57.             throw new ApplicationException(result.ToString());
+58.         }
+59.     }
+60. 
+61.     public async Task ResetPasswordAsync(
+62.         ChangePasswordDto changePasswordDto,
+63.         CancellationToken cancellationToken = default)
+64.     {
+65.         var user = await _userManager.FindByEmailAsync(changePasswordDto.Email)
+66.                    ?? throw new ApplicationException($"User with email {changePasswordDto.Email} was not found");
+67. 
+68.         var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+69.         var result = await _userManager.ResetPasswordAsync(user, token, changePasswordDto.Password);
+70. 
+71.         if (!result.Succeeded)
+72.         {
+73.             throw new ApplicationException("Failed to reset password");
+74.         }
+75.     }
+76. }
+
+
+
+
+
+
+
+ДОДАТОК Ґ
+SessionEndpointDefinition.cs
+
+1. public class SessionEndpointDefinition : IEndpointDefinition
+2. {
+3.     public void RegisterEndpoints(WebApplication app)
+4.     {
+5.         var sessionGroup = app.MapGroup("/api/sessions");
+6. 
+7.         sessionGroup.MapGet("/", GetSessions);
+8.         sessionGroup.MapGet("/{id:guid}", GetSession);
+9.         sessionGroup.MapGet("/{id:guid}/performanceMetrics", GetPerformanceMetrics);
+10.         sessionGroup.MapGet("/{id:guid}/healthMetrics", GetHealthMetrics);
+11.         sessionGroup.MapPost("/", CreateSession);
+12.         sessionGroup.MapPost("/{id:guid}/performanceMetrics", CreatePerformanceMetric);
+13.         sessionGroup.MapPost("/{id:guid}/performanceMetrics/batch", PopulatePerformanceMetrics);
+14.         sessionGroup.MapPost("/{id:guid}/healthMetrics", CreateHealthMetric);
+15.         sessionGroup.MapPost("/{id:guid}/healthMetrics/batch", PopulateHealthMetrics);
+16.         sessionGroup.MapDelete("/{id:guid}", DeleteSession);
+17.     }
+18. 
+19.     private static async Task<IResult> GetSessions(
+20.         IMediator mediator,
+21.         [BindRequired] Guid teamId)
+22.     {
+23.         var sessions = await mediator.Send(new GetSessionsQuery(teamId));
+24.         return Results.Ok(sessions);
+25.     }
+26. 
+27.     private static async Task<IResult> GetSession(
+28.         IMediator mediator,
+29.         [FromRoute] Guid id)
+30.     {
+31.         var session = await mediator.Send(new GetSessionByIdQuery(id));
+32.         return Results.Ok(session);
+33.     }
+34.     
+35.     private static async Task<IResult> GetPerformanceMetrics(
+36.         IMediator mediator,
+37.         [FromRoute] Guid id,
+38.         [AsParameters] GetPerformanceMetricsRequest getPerformanceMetricsRequest)
+39.     {
+40.         var performanceMetrics = await mediator.Send(new GetPerformanceMetricsQuery(
+41.             id,
+42.             getPerformanceMetricsRequest.AthleteId,
+43.             getPerformanceMetricsRequest.MetricType,
+44.             getPerformanceMetricsRequest.DateFrom,
+45.             getPerformanceMetricsRequest.DateTo));
+46.         return Results.Ok(performanceMetrics);
+47.     }
+48. 
+49.     private static async Task<IResult> GetHealthMetrics(
+50.         IMediator mediator,
+51.         [FromRoute] Guid id,
+52.         [AsParameters] GetHealthMetricsRequest getHealthMetricsRequest)
+53.     {
+54.         var healthMetrics = await mediator.Send(new GetHealthMetricsQuery(
+55.             id,
+56.             getHealthMetricsRequest.AthleteId,
+57.             getHealthMetricsRequest.MetricType,
+58.             getHealthMetricsRequest.DateFrom,
+59.             getHealthMetricsRequest.DateTo));
+60.         return Results.Ok(healthMetrics);
+61.     }
+62.     
+63.     private static async Task<IResult> CreateSession(
+64.         IMediator mediator,
+65.         [FromBody] CreateSessionRequest createSessionRequest)
+66.     {
+67.         var session = await mediator.Send(new CreateSessionCommand(
+68.             createSessionRequest.TeamId, 
+69.             createSessionRequest.Duration));
+70.         return Results.Ok(session);
+71.     }
+72. 
+73.     private static async Task<IResult> CreatePerformanceMetric(
+74.         IMediator mediator,
+75.         [FromRoute] Guid id,
+76.         [FromBody] CreatePerformanceMetricRequest createPerformanceMetricRequest)
+77.     {
+78.         await mediator.Send(new CreatePerformanceMetricCommand(
+79.             id,
+80.             createPerformanceMetricRequest.TeamAthleteId,
+81.             createPerformanceMetricRequest.MetricType,
+82.             createPerformanceMetricRequest.MetricValue));
+83.         return Results.NoContent();
+84.     }
+85. 
+86.     private static async Task<IResult> PopulatePerformanceMetrics(
+87.         IMediator mediator,
+88.         [FromRoute] Guid id,
+89.         [FromBody] PopulatePerformanceMetricsRequest populatePerformanceMetricsRequest)
+90.     {
+91.         await mediator.Send(new PopulatePerformanceMetricsCommand(
+92.             id,
+93.             populatePerformanceMetricsRequest.TeamAthleteId,
+94.             populatePerformanceMetricsRequest.Metrics));
+95.         return Results.NoContent();
+96.     }
+97. 
+98.     private static async Task<IResult> CreateHealthMetric(
+99.         IMediator mediator,
+100.         [FromRoute] Guid id,
+101.         [FromBody] CreateHealthMetricRequest createHealthMetricRequest)
+102.     {
+103.         await mediator.Send(new CreateHealthMetricCommand(
+104.             id,
+105.             createHealthMetricRequest.TeamAthleteId,
+106.             createHealthMetricRequest.MetricType,
+107.             createHealthMetricRequest.MetricValue));
+108.         return Results.NoContent();
+109.     }
+110. 
+111.     private static async Task<IResult> PopulateHealthMetrics(
+112.         IMediator mediator,
+113.         [FromRoute] Guid id,
+114.         [FromBody] PopulateHealthMetricsRequest populateHealthMetricsRequest)
+115.     {
+116.         await mediator.Send(new PopulateHealthMetricsCommand(
+117.             id,
+118.             populateHealthMetricsRequest.TeamAthleteId,
+119.             populateHealthMetricsRequest.Metrics));
+120.         return Results.NoContent();
+121.     }
+122.     
+123.     private static async Task<IResult> DeleteSession(
+124.         IMediator mediator,
+125.         [FromRoute] Guid id)
+126.     {
+127.         await mediator.Send(new DeleteSessionCommand(id));
+128.         return Results.NoContent();
+129.     }
+130. }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ДОДАТОК Ж
+session-item-component.ts
+
+1. @Component({
+2.   selector: 'app-session-item',
+3.   templateUrl: './session-item.component.html',
+4.   styleUrls: ['./session-item.component.scss']
+5. })
+6. export class SessionItemComponent implements OnInit {
+7.   session!: Session;
+8.   athletes: Athlete[] = [];
+9.   displayedColumns: string[] = ["email", "firstName", "lastName"];
+10.   userSelected: boolean = false;
+11.   heartMetrics: Array<any> = [];
+12.   speedMetrics: Array<any> = [];
+13.   distanceMetrics: Array<any> = [];
+14.   caloricBurnMetrics: Array<any> = [];
+15.   exerciseDurationMetrics: Array<any> = [];
+16. 
+17.   constructor(
+18.     private sessionService: SessionService,
+19.     private teamService: TeamsService,
+20.     private activatedRoute: ActivatedRoute,
+21.     private router: Router
+22.   ) { }
+23. 
+24.   ngOnInit(): void {
+25.     this.activatedRoute.params.subscribe(x => {
+26.       let id = x['id']
+27.       this.getSessionById(id);
+28.     });
+29.   }
+30. 
+31.   getSessionById(id: string){
+32.     this.sessionService.getSessionById(id).subscribe(x => {
+33.       this.session = x;
+34.       this.getTeamAthletes(this.session.teamId);
+35.     })
+36.   }
+37. 
+38.   deleteSession(){
+39.     this.sessionService.deleteSession(this.session.id).subscribe(x => {
+40.       this.router.navigateByUrl(`/teams/${this.session.teamId}`)
+41.     })
+42.   }
+43. 
+44.   getTeamAthletes(teamId: string){
+45.     this.teamService.getAthletes(teamId).subscribe(x => {
+46.       this.athletes = x;
+47.     })
+48.   }
+49. 
+50.   onSelectUser(athleteId: string){
+51.     this.userSelected = true;
+52. 
+53.     this.sessionService.getHealthMetrics(this.session.id, athleteId, 'HeartRate').subscribe(x => {
+54.       this.heartMetrics = x;
+55.       var data = this.heartMetrics.map((val, index) => ({ "name": (index + 1).toString(), "value": val.metricValue }));
+56.       this.heartRateData = [
+57.         {
+58.           "name": "Speed",
+59.           "series": data
+60.         }
+61.       ]
+62.     })
+63. 
+64.     this.sessionService.getPerformanceMetrics(this.session.id, athleteId, 'Speed').subscribe(x => {
+65.       this.speedMetrics = x;
+66.       var data = this.speedMetrics.map((val, index) => ({ "name": (index + 1).toString(), "value": val.metricValue }));
+67.       this.speedData = [
+68.         {
+69.           "name": "Speed",
+70.           "series": data
+71.         }
+72.       ]
+73.     })
+74. 
+75.     this.sessionService.getPerformanceMetrics(this.session.id, athleteId, 'Distance').subscribe(x => {
+76.       this.speedMetrics = x;
+77.       var data = this.speedMetrics.map((val, index) => ({ "name": (index + 1).toString(), "value": val.metricValue }));
+78.       this.speedData = data;
+79.     })
+80.   }
+81. 
+82.   view: [number, number] = [700, 400];
+83.   centeredView: [number, number] = [700, 400];
+84. 
+85.   gradient = false;
+86.   showLegend = true;
+87.   showLabels = true;
+88.   explodeSlices = false;
+89.   doughnut = false;
+90.   roundEdges = true;
+91. 
+92.   colorScheme: Color = {
+93.     name: 'light',
+94.     selectable: true,
+95.     group: ScaleType.Ordinal,
+96.     domain: ['#80CBC4', '#C5E1A5', '#FFF59D', '#FFCC80', '#FFAB91', '#BCAAA4']
+97.   };
+98. 
+99.   heartRateData: any = [];
+100.   distanceData: any = [];
+101.   speedData: any = [];
+102.   caloricBurnData = [];
+103.   exerciseDurationData = [];
+104. }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ДОДАТОК Е
+REST API Специфікація
+
+Шлях	Метод	Призначення
+/api/databaseOperations/backup	POST	Бекап бази даних
+/api/databaseOperations/restore	POST	Відновлення бази даних
+/api/auth/login	POST	Вхід в акаунт
+/api/auth/signup	POST	Створення акаунту
+/api/users	GET	Отримання всіх користувачів
+/api/users/{id}	GET	Отримання одного користувача
+/api/sports	GET	Отримати всі спорти
+/api/athletes	GET	Отримати всіх атлетів
+/api/athletes/{id}	GET	Отримати одного атлету
+/api/athletes	POST	Створення атлету
+/api/teams	GET	Отримання всіх команд
+/api/teams/{id}	GET	Отримання однієї команди
+/api/teams	POST	Створення команди
+/api/teams/{id}/athletes	POST	Додавання атлету до команди
+/api/teams/{id}/athletes	DELETE	Видалення атлету з команди
+/api/sessions	GET	Отримання сесії
+/api/sessions/{id}/performanceMetrics	GET	Отримання метрик виконання за сесію
+/api/sessions/{id}/healthMetrics	GET	Отримання метрик здоров'я за сесію
+/api/sessions	POST	Створення сесії
+/api/sessions/{id}/performanceMetrics	POST	Створення метрики
+/api/sessions/{id}/healthMetrics	POST	Створення метрики
+/api/sessions/{id}/performanceMetrics/batch	POST	Створення метрик
+/api/sessions/{id}/healthMetrics/batch	POST	Створення метрик
+/api/sessions/{id}	DELETE	Видалення сесії
+
