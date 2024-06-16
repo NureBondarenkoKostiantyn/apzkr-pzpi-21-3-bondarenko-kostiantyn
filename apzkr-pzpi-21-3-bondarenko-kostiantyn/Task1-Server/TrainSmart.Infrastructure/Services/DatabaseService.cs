@@ -87,7 +87,6 @@ public class DatabaseService: IDatabaseService
                 await command.ExecuteNonQueryAsync(cancellationToken);
             }
 
-            // set database to multi user
             sql = @"
                         declare @database varchar(max) = quotename(@databaseName)
                         EXEC('ALTER DATABASE ' + @database + ' SET MULTI_USER')";
@@ -101,7 +100,7 @@ public class DatabaseService: IDatabaseService
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.ToString());
+            throw new ApplicationException("Exception occured during database backup: " + ex.Message);
         }
     }
     

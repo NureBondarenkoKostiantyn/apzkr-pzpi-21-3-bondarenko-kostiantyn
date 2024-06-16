@@ -59,7 +59,7 @@ public class PopulateSessionMetricsFunction
 
         foreach (var teamAthlete in team.Athletes)
         {
-            var count = random.Next(100, 1000);
+            var count = random.Next(50, 200);
             var performanceMetrics = new List<PerformanceMetricTypeValueDto>();
             var healthMetrics = new List<HealthMetricTypeValueDto>();
             for (var i = 0; i < count; i++)

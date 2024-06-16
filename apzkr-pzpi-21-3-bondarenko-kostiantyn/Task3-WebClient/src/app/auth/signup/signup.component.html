@@ -1,24 +1,23 @@
-
-<form class="container" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-  <div class="container__item">
-    <p i18n>Sign up</p>
+<form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div class="signup-form__header">
+    <p>{{'auth.signup' | translate}}</p>
   </div>
-  <div class="container__item">
-    <input formControlName="firstName" type="text" pInputText placeholder="First name"/>
+  <div class="signup-form__input">
+    <input formControlName="firstName" type="text" placeholder="{{'auth.firstName' | translate}}"/>
   </div>
-  <div class="container__item">
-    <input formControlName="lastName" type="text" pInputText placeholder="Last name"/>
+  <div class="signup-form__input">
+    <input formControlName="lastName" type="text" placeholder="{{'auth.lastName' | translate}}"/>
   </div>
-  <div class="container__item">
-    <input formControlName="email" type="text" pInputText placeholder="Email"/>
+  <div class="signup-form__input">
+    <input formControlName="email" type="text" placeholder="{{'auth.email' | translate}}"/>
   </div>
-  <div class="container__item">
-    <input formControlName="password" type="password" pInputText placeholder="Password"/>
+  <div class="signup-form__input">
+    <input formControlName="password" type="password" placeholder="{{'auth.password' | translate}}"/>
   </div>
-  <div class="container__item">
-    <button type="submit" [disabled]="signupForm.invalid">Submit</button>
+  <div class="signup-form__actions">
+    <button type="submit" [disabled]="signupForm.invalid">{{'auth.submit' | translate}}</button>
   </div>
-  <div class="container__links">
-    <a i18n routerLink="/auth/login">Already Have an Account?</a>
+  <div class="signup-form__links">
+    <a i18n routerLink="/auth/login">{{'auth.alreadyHaveAccount' | translate}}</a>
   </div>
 </form>

@@ -12,6 +12,7 @@ import { SessionRoutingModule } from './session.routing.module';
 import { MatCardModule } from '@angular/material/card';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatTableModule } from '@angular/material/table';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     MatCardModule,
     NgxChartsModule,
-    MatTableModule
+    MatTableModule,
+    TranslateModule
   ]
 })
 export class SessionModule { }

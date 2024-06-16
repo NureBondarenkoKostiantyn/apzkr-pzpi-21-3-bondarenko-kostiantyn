@@ -80,17 +80,16 @@ export class SessionItemComponent implements OnInit {
       ]
     })
 
-    this.sessionService.getPerformanceMetrics(this.session.id, athleteId, 'Distance').subscribe(x => {
-      this.speedMetrics = x;
-      var data = this.speedMetrics.map((val, index) => ({ "name": (index + 1).toString(), "value": val.metricValue }));
-      this.speedData = data;
-    })
+    // this.sessionService.getPerformanceMetrics(this.session.id, athleteId, 'Distance').subscribe(x => {
+    //   this.speedMetrics = x;
+    //   var data = this.speedMetrics.map((val, index) => ({ "name": (index + 1).toString(), "value": val.metricValue }));
+    //   this.speedData = data;
+    // })
   }
 
   view: [number, number] = [700, 400];
   centeredView: [number, number] = [700, 400];
 
-  // General chart options
   gradient = false;
   showLegend = true;
   showLabels = true;
@@ -106,49 +105,8 @@ export class SessionItemComponent implements OnInit {
   };
 
   heartRateData: any = [];
-
-  // Distance Data (Bar Chart)
   distanceData: any = [];
-
   speedData: any = [];
-
-  // Caloric Burn Data (Stacked Bar Chart)
-  caloricBurnData = [
-    {
-      "name": "2024-06-07",
-      "series": [
-        { "name": "Running", "value": 300 },
-        { "name": "Cycling", "value": 200 },
-        { "name": "Swimming", "value": 150 }
-      ]
-    },
-    {
-      "name": "2024-06-08",
-      "series": [
-        { "name": "Running", "value": 320 },
-        { "name": "Cycling", "value": 220 },
-        { "name": "Swimming", "value": 170 }
-      ]
-    },
-    {
-      "name": "2024-06-09",
-      "series": [
-        { "name": "Running", "value": 310 },
-        { "name": "Cycling", "value": 230 },
-        { "name": "Swimming", "value": 160 }
-      ]
-    }
-  ];
-
-  // Exercise Duration Data (Line Chart)
-  exerciseDurationData = [
-    {
-      "name": "Duration",
-      "series": [
-        { "name": "2024-06-07", "value": 60 },
-        { "name": "2024-06-08", "value": 75 },
-        { "name": "2024-06-09", "value": 70 }
-      ]
-    }
-  ];
+  caloricBurnData = [];
+  exerciseDurationData = [];
 }

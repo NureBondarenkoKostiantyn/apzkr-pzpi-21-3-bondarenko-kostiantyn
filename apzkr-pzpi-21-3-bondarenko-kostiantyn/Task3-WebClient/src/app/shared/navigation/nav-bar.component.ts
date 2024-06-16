@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'nav-bar',
@@ -7,10 +7,17 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+  show: boolean = true;
 
-  constructor(private translate: TranslateService) { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  shouldShowToolbar(): boolean {
+    const currentPath = this.router.url;
+    return !currentPath.includes('auth/login') && !currentPath.includes('auth/signup');
+  }
 }

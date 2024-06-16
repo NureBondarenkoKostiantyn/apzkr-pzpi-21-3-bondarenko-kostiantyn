@@ -1,9 +1,8 @@
 <mat-toolbar color="primary" class="main-toolbar">
   <span routerLink="/" class="toolbar-title">Train Smart</span>
-  <div class="toolbar-links">
-    <a mat-button routerLink="/teams">Teams</a>
-    <a mat-button routerLink="/users">Users</a>
-    <a mat-button routerLink="/contact">Contact</a>
+  <div class="toolbar-links" *ngIf="shouldShowToolbar()">
+    <a mat-button routerLink="/teams">{{'navbar.teams' | translate}}</a>
+    <a mat-button routerLink="/users">{{'navbar.users' | translate}}</a>
   </div>
   <app-language class="language-switcher"></app-language>
 </mat-toolbar>

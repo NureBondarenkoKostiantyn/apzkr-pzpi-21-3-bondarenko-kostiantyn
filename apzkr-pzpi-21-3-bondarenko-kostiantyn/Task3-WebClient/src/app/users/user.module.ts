@@ -5,6 +5,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserRoutingModule } from './user.routing.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     UserRoutingModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    TranslateModule
   ]
 })
 export class UserModule { }

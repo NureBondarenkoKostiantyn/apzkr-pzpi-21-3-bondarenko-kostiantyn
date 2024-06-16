@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CreateTeamDialogComponent } from './dialogs/create-team-dialog/create-team-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditTeamDialogComponent } from './dialogs/edit-team-dialog/edit-team-dialog.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EditTeamDialogComponent } from './dialogs/edit-team-dialog/edit-team-di
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ]
 })
 export class TeamsModule { }

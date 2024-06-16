@@ -1,18 +1,17 @@
-
-<form class="container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div class="container__item">
-    <p i18n>Log in</p>
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="login-form__header">
+    <p>{{'auth.login' | translate}}</p>
   </div>
-  <div class="container__item">
-    <input formControlName="email" type="text" pInputText placeholder="Email"/>
+  <div class="login-form__input">
+    <input matInput formControlName="email" type="text" placeholder="{{'auth.email' | translate}}"/>
   </div>
-  <div class="container__item">
-    <input formControlName="password" type="password" pInputText placeholder="Password"/>
+  <div class="login-form__input">
+    <input matInput formControlName="password" type="password" placeholder="{{'auth.password' | translate}}"/>
   </div>
-  <div class="container__item">
-    <button type="submit">Submit</button>
+  <div class="login-form__actions">
+    <button mat-button type="submit">{{'auth.submit' | translate}}</button>
   </div>
-  <div class="container__links">
-    <a i18n routerLink="/auth/signup">No Account Yet?</a>
+  <div class="login-form__links">
+    <a routerLink="/auth/signup">{{'auth.noAccountYet' | translate}}</a>
   </div>
 </form>

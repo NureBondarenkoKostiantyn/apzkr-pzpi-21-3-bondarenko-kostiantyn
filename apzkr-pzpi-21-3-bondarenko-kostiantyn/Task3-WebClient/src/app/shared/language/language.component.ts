@@ -18,6 +18,7 @@ export class LanguageComponent implements OnInit {
   }
 
   switchLanguage(language: string) {
+    console.log('lang: ' + language);
     this.currentLanguage = language;
     this.translate.use(language);
   }
