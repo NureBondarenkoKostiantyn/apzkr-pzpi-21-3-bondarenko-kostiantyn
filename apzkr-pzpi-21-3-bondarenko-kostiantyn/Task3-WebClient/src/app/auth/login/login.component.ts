@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         this.loading$.next(false);
       }))
       .subscribe({
-        next: x => this.router.navigateByUrl('/items'),
+        next: x => this.router.navigateByUrl('/'),
         error: err => console.log(err),
         complete: () => this.loading$.next(false)
       });

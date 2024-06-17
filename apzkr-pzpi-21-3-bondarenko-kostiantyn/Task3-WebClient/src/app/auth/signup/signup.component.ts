@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
         this.loading$.next(false);
       }))
       .subscribe({
-        next: x => this.router.navigateByUrl('/login'),
+        next: x => this.router.navigateByUrl('/auth/login'),
         error: err => console.log(err),
         complete: () => this.loading$.next(false)
       });

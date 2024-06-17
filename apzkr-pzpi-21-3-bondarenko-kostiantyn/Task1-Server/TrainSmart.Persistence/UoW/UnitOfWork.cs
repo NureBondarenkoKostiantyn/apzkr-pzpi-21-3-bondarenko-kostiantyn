@@ -19,11 +19,6 @@ public class UnitOfWork : IUnitOfWork
         _repositories = new Dictionary<string, object>();
     }
 
-    public int SaveChanges()
-    {
-        return _dbContext.SaveChanges();
-    }
-
     public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         return _dbContext.SaveChangesAsync(cancellationToken);

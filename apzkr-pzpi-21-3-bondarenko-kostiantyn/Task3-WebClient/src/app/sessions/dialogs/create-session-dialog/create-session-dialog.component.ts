@@ -40,7 +40,7 @@ export class CreateSessionDialogComponent implements OnInit {
     session.teamId = this.data.teamId;
     this.sessionService.createSession(session).subscribe(x => {
       this.dialogRef.close();
-      this.notifierService.showSuccessNotification('Successfully created a sessio');
+      this.notifierService.showSuccessNotification('Successfully created a session');
     }, err => {
       console.log(err);
       this.notifierService.showErrorNotification(err.name);

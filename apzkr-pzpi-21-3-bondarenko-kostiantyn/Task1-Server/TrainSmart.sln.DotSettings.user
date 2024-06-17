@@ -5,5 +5,6 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f1aae21f_002D4844_002D4bf3_002D81de_002D599809bedd77/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Dtos/@EntryIndexedValue">True</s:Boolean>
 	</wpf:ResourceDictionary>

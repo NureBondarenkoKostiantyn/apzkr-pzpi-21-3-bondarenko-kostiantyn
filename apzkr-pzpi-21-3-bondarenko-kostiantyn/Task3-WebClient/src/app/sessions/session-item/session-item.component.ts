@@ -80,11 +80,33 @@ export class SessionItemComponent implements OnInit {
       ]
     })
 
-    // this.sessionService.getPerformanceMetrics(this.session.id, athleteId, 'Distance').subscribe(x => {
-    //   this.speedMetrics = x;
-    //   var data = this.speedMetrics.map((val, index) => ({ "name": (index + 1).toString(), "value": val.metricValue }));
-    //   this.speedData = data;
-    // })
+    this.sessionService.getPerformanceMetrics(this.session.id, athleteId, 'Distance').subscribe(x => {
+      this.distanceMetrics = x;
+      var data = this.distanceMetrics.map((val, index) => ({ "name": (index + 1).toString(), "value": val.metricValue }));
+      this.distanceData = data;
+    })
+
+    this.sessionService.getPerformanceMetrics(this.session.id, athleteId, 'CaloricBurn').subscribe(x => {
+      this.caloricBurnMetrics = x;
+      var data = this.caloricBurnMetrics.map((val, index) => ({ "name": (index + 1).toString(), "value": val.metricValue }));
+      this.caloricBurnData = [
+        {
+          "name": "Caloric Burn",
+          "series": data
+        }
+      ];
+    })
+
+    this.sessionService.getPerformanceMetrics(this.session.id, athleteId, 'CaloricBurn').subscribe(x => {
+      this.exerciseDurationMetrics = x;
+      var data = this.exerciseDurationMetrics.map((val, index) => ({ "name": (index + 1).toString(), "value": val.metricValue }));
+      this.exerciseDurationData = [
+        {
+          "name": "Exercise Duration",
+          "series": data
+        }
+      ];
+    })
   }
 
   view: [number, number] = [700, 400];
@@ -107,6 +129,6 @@ export class SessionItemComponent implements OnInit {
   heartRateData: any = [];
   distanceData: any = [];
   speedData: any = [];
-  caloricBurnData = [];
-  exerciseDurationData = [];
+  caloricBurnData: any = [];
+  exerciseDurationData: any = [];
 }
